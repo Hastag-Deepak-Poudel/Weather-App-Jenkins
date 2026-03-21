@@ -12,13 +12,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # STAGE 2 FINAL STAGE
 
-# Using a slim python 3.9 to put it as base image
-FROM python:3.9-slim
+# Using a slim python 3.13 to put it as base image
+FROM python:3.13-slim
 
 #Set the working directory to /app
 
 # Copy the build dependencies from backend-builder stage
-COPY --from=backend-builder /usr/local/lib/python3.9/site-packages/ /usr/local/lib/python3.9/site-packages/
+COPY --from=backend-builder /usr/local/lib/python3.13/site-packages/ /usr/local/lib/python3.13/site-packages/
 
 # Copy the application code from the builder stage
 COPY --from=backend-builder /app /app
